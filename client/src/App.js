@@ -9,7 +9,7 @@ import Register from './pages/Register';
 import Login from './pages/Login';
 import Summary from './pages/Summary';
 import Chatbot from './pages/Chatbot';
-
+import ProtectedRoute from './components/ProtectedRoute';
 // Fix the ResizeObserver loop error warning (if not already patched in browser)
 window.addEventListener("error", (e) => {
   if (e.message === "ResizeObserver loop completed with undelivered notifications.") {
@@ -25,7 +25,7 @@ function App() {
         <NavBar />
         <Toaster />
         <Routes>
-          <Route path="/" element={<Homepage />} />
+          <Route path="/" element={<ProtectedRoute> <Homepage /></ProtectedRoute>} />
           <Route path="/register" element={<Register />} />
           <Route path="/login" element={<Login />} />
           <Route path="/summary" element={<Summary />} />
